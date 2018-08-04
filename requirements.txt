@@ -50,7 +50,6 @@ requests-oauthlib==1.0.0
 simplegeneric==0.8.1
 six==1.11.0
 sqlparse==0.2.4
-strcmd==0.1
 traitlets==4.3.2
 urllib3==1.23
 virtualenv==15.2.0
