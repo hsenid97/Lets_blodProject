@@ -9,7 +9,7 @@ class LoginView extends Component
     constructor(props)
     {
         super(props);
-        this.state={creds:{},token:"",isAuth:false,usernmae:"",passkey:""};
+        this.state={creds:{},token:"",isAuth:false,usernmae:"",passkey:"",url_path:"https://lets-blog-dinesh.herokuapp.com"};
     }
  
     submitFormHandler(e)
@@ -21,7 +21,7 @@ class LoginView extends Component
     checkTheLoginDetailsAndSaveToken(data,e)
     {
        let sts=false;
-        fetch("/api-jwttoken-auth/",
+        fetch(this.state.url_path+"/api-jwttoken-auth/",
         {
             method:"POST",
             body:JSON.stringify(data),
@@ -42,7 +42,7 @@ class LoginView extends Component
             
             let datatok=JSON.parse(localStorage.getItem('token'));
             console.log(datatok['token']+" sucess");    
-            fetch("/api/v1/EditProfile/",
+            fetch(this.state.url_path+"/api/v1/EditProfile/",
             {
                 method:"GET",
                 headers: new Headers({
