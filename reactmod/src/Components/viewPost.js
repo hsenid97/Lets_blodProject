@@ -6,7 +6,7 @@ class ViewPost extends Component
     constructor(props)
     {
         super(props);
-        this.state={like:[]};
+        this.state={like:[],url_path:"https://lets-blog-dinesh.herokuapp.com"};
     }
     handleLike(e)
     {
@@ -27,7 +27,7 @@ class ViewPost extends Component
         formData.append('blogs',s);
         let datatok=JSON.parse(localStorage.getItem('token'));                
         console.log(datatok['token']+" sucess");   
-        fetch("http://localhost:8000/api/v1/EditProfile/",
+        fetch(this.state.url_path+"/api/v1/EditProfile/",
         {
             method:"PUT",
             body:formData, 
@@ -70,7 +70,7 @@ class ViewPost extends Component
     componentDidMount()
     {
         let data=JSON.parse(localStorage.getItem('token'));
-        fetch("http://localhost:8000/api/v1/GETallProfile/",
+        fetch(this.state.url_path+"/api/v1/GETallProfile/",
         {
             method:"GET",
             headers: new Headers({

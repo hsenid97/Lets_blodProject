@@ -5,12 +5,12 @@ class EditProfileComponent extends Component
     constructor(props)
     {
         super(props);
-        this.state={profile:[]};
+        this.state={profile:[],url_path:"https://lets-blog-dinesh.herokuapp.com"};
     }
     componentDidMount()
     {
         let data=JSON.parse(localStorage.getItem('token'));
-        fetch("http://localhost:8000/api/v1/EditProfile/",
+        fetch(this.state.url_path+"/api/v1/EditProfile/",
         {
             method:'GET',
             headers:new Headers(

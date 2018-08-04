@@ -19,6 +19,7 @@ class IndivDis extends Component
     constructor(props)
     {
         super(props);
+        this.state={url_path:"https://lets-blog-dinesh.herokuapp.com"};
     }
     
     onChangeView()
@@ -33,7 +34,7 @@ class IndivDis extends Component
     }
     render()
     {
-        let dp="http://localhost:8000";
+        let dp=this.state.url_path;
         let fname,lname,displayname,fc,ffc;
         try{
          fname=this.props.profile.firstname;

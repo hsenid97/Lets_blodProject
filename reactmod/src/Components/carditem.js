@@ -16,7 +16,7 @@ class Carditem extends Component{
     constructor(props)
     {
         super(props);
-        this.state={toggle:true,like:false,temp:false,delete:false};
+        this.state={toggle:true,like:false,temp:false,delete:false,url_path:"https://lets-blog-dinesh.herokuapp.com"};
     }
     
     toggleUp(e)
@@ -40,7 +40,7 @@ class Carditem extends Component{
     handleDelete()
     {
         let data=JSON.parse(localStorage.getItem('token'));
-        let url="http://localhost:8000/api/v1/EditBlogs/"+this.props.card.id+"/";
+        let url=this.state.url_path+"/api/v1/EditBlogs/"+this.props.card.id+"/";
         fetch(url,
             {
                 method:"DELETE",
@@ -80,7 +80,7 @@ class Carditem extends Component{
             bname="Less Content";
             content=this.props.card.blogPost;
         }
-        let dp="http://localhost:8000";
+        let dp=this.state.url_path;
          
         
         if(this.props.profiledata.profilepic===null)

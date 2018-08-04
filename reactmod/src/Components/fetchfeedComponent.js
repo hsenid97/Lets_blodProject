@@ -20,14 +20,14 @@ class FetchFeedComponent extends Component
     constructor(props)
     {
         super(props);
-        this.state={list:[]};
+        this.state={list:[],url_path:"https://lets-blog-dinesh.herokuapp.com"};
     }
     componentDidMount()
     {
         console.log("component did mount");
         let result;
         let data=JSON.parse(localStorage.getItem('token'));
-        fetch("http://localhost:8000/api/v1/GETallBlogs/",  
+        fetch(this.state.url_path+"/api/v1/GETallBlogs/",  
         {    method:"GET",
              headers: new Headers({
             'Authorization': 'JWT '+(data['token']), 

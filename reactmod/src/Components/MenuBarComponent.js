@@ -34,7 +34,11 @@ const styles = theme => ({
 
 class MenuBarComponent extends Component
 {
-
+    constructor(props)
+    {
+      super(props);
+      this.state={url_path:"https://lets-blog-dinesh.herokuapp.com"};
+    }
     logout()
     {
         localStorage.removeItem('token');
@@ -68,22 +72,22 @@ class MenuBarComponent extends Component
                  <Grid item xs={1}>
                  </Grid>
                  <Grid item xs={1}>
-                 <a className="linkref" href ="http://localhost:8000/MyApp/LetsBlog/Home"><Button color="inherit">Home</Button></a>
+                 <a className="linkref" href ={this.state.url_path+"/MyApp/LetsBlog/Home"}><Button color="inherit">Home</Button></a>
                  </Grid>
                  <Grid item xs={1}>
-                 <a className="linkref" href ="http://localhost:8000/MyApp/LetsBlog/Blog"><Button color="inherit">Blog</Button></a>
+                 <a className="linkref" href ={this.state.url_path+"/MyApp/LetsBlog/Blog"}><Button color="inherit">Blog</Button></a>
                  </Grid>
                  <Grid item xs={1}>
-                 <a className="linkref" href ="http://localhost:8000/MyApp/LetsBlog/EditPro"><Button color="inherit">EditPro</Button></a>
+                 <a className="linkref" href ={this.state.url_path+"/MyApp/LetsBlog/EditPro"}><Button color="inherit">EditPro</Button></a>
                  </Grid>
                  <Grid item xs={1}>
-                 <a className="linkref" href ="http://localhost:8000/MyApp/LetsBlog/Profile"><Button color="inherit">People</Button></a>
+                 <a className="linkref" href ={this.state.url_path+"/MyApp/LetsBlog/Profile"}><Button color="inherit">People</Button></a>
                  </Grid>
                  <Grid item xs={1}>
-                 <a className="linkref" href ="http://localhost:8000/MyApp/LetsBlog "><Button color="inherit" onClick={this.logout.bind(this)}>LogOut</Button></a>
+                 <a className="linkref" href ={this.state.url_path+"/MyApp/LetsBlog "}><Button color="inherit" onClick={this.logout.bind(this)}>LogOut</Button></a>
                  </Grid>
                   <Grid item xs={1}>
-                 <a className="linkref" href ="http://localhost:8000/MyApp/LetsBlog/SelfDetail"><Button color="inherit">{JSON.parse(localStorage.getItem('displayname'))}</Button></a>
+                 <a className="linkref" href ={this.state.url_path+"/MyApp/LetsBlog/SelfDetail"}><Button color="inherit">{JSON.parse(localStorage.getItem('displayname'))}</Button></a>
                  </Grid>
                  
           </Grid>

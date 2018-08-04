@@ -5,6 +5,7 @@ class SignupUser extends Component
     constructor(props)
     {
         super(props);
+        this.state={url_path:"https://lets-blog-dinesh.herokuapp.com",};
         this.storeInDataBase.bind(this);
     }
 
@@ -25,7 +26,7 @@ class SignupUser extends Component
     checkTheLoginDetailsAndSaveToken(data,e)
     {
        let sts=false;
-        fetch("http://localhost:8000/api-jwttoken-auth/",
+        fetch(this.state.url_path+"/api-jwttoken-auth/",
         {
             method:"POST",
             body:JSON.stringify(data),
@@ -44,7 +45,7 @@ class SignupUser extends Component
             if(sts){
             localStorage.setItem('token',JSON.stringify(token));
             localStorage.setItem('displayname',JSON.stringify(data.username));
-            window.location.href = "http://localhost:8000/MyApp/LetsBlog/Home/";
+            window.location.href = this.state.url_path+"/MyApp/LetsBlog/Home/";
         }
        })
         .catch(error=>
@@ -58,7 +59,7 @@ class SignupUser extends Component
     storeInDataBase(data,e)
     {
         console.log(data.username+"  sadf "+data.password+data.email+data.displayname);
-        fetch("http://localhost:8000/api/v1/GETallProfile/",
+        fetch(this.state.url_path+"/api/v1/GETallProfile/",
                 {
                     method:"POST",
                     body:JSON.stringify(data),
@@ -137,7 +138,7 @@ class SignupUser extends Component
                         </form>
                     </center>
         
-        <a href ="http://localhost:8000/MyApp"><button>back</button></a>
+        <a href ={this.state.url_path+"/MyApp"}><button>back</button></a>
         </div>
     );
     }

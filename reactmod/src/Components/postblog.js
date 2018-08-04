@@ -8,7 +8,7 @@ class PostBlog extends Component
     constructor(props)
     {
         super(props);
-        this.state={change:false};
+        this.state={change:false,url_path:"https://lets-blog-dinesh.herokuapp.com"};
     }
     handleFormSubmit(e)
     {
@@ -17,7 +17,7 @@ class PostBlog extends Component
         if(this.props.sd==true){
             console.log("in the handleeditsubbmit");
             
-         url="http://localhost:8000/api/v1/EditBlogs/"+this.props.blog.id+"/";
+         url=this.state.url_path+"/api/v1/EditBlogs/"+this.props.blog.id+"/";
          console.log(url);
         meth="PUT";
         
@@ -25,7 +25,7 @@ class PostBlog extends Component
         else
         {
             meth="POST";
-            url="http://localhost:8000/api/v1/GETallBlogs/";    
+            url=this.state.url_path+"/api/v1/GETallBlogs/";    
         }
         console.log(this.refs.blogTitle.value);
         let data={blogTitle:this.refs.blogTitle.value,

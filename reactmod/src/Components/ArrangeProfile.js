@@ -3,12 +3,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import React,{Component} from 'react';
 import Paper from '@material-ui/core/Paper';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import { IconButton, Grid, TableCell, TableHead } from '@material-ui/core';
 import IndivDis from './Indivdisplay';
 import Table from '@material-ui/core/Table';
@@ -41,7 +35,7 @@ class ArrangeProfile extends Component
         super(props);
         this.state={displaymulti:true,
                     fulldisplay:false,
-                    list:[],like:[]};
+                    list:[],like:[],url_path:"https://lets-blog-dinesh.herokuapp.com"};
         console.log("const "+this.props);
     }
     handleView(e)
@@ -53,7 +47,7 @@ class ArrangeProfile extends Component
             }
         );
         let data=JSON.parse(localStorage.getItem('token'));
-        fetch("http://localhost:8000/api/v1/GETallBlogs/",  
+        fetch(this.state.url_path+"/api/v1/GETallBlogs/",  
         {    method:"GET",
              headers: new Headers({
             'Authorization': 'JWT '+(data['token']), 
@@ -96,7 +90,7 @@ class ArrangeProfile extends Component
                 let datatok=JSON.parse(localStorage.getItem('token'));                
                 console.log(datatok['token']+" sucess");   
                 let dataStr={'followers':s};
-                fetch("http://localhost:8000/api/v1/EditProfile/",
+                fetch(this.state.url_path+"/api/v1/EditProfile/",
                 {
                     method:"PUT",
                     body:formData, 
@@ -154,7 +148,7 @@ class ArrangeProfile extends Component
                 break;
             }
      }
-      let dp="http://localhost:8000";
+      let dp=this.state.url_path;
          if(!decision){
         if(required_profile.profilepic===null)
         {

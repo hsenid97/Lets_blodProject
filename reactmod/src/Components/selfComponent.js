@@ -12,12 +12,13 @@ class SelfComponent extends Component{
     constructor(props)
     {
         super(props);
-        this.state={dp:"",details:false,profiledetails:false,blogdetails:false,secondphase:false,id:"",temp:false};
+        this.state={dp:"",details:false,profiledetails:false,blogdetails:false,secondphase:false,id:"",temp:false,
+        url_path:"https://lets-blog-dinesh.herokuapp.com",};
     }
     
     getImageSrc(stat)
     {
-      let dp="http://localhost:8000";
+      let dp=this.state.url_path;
       
       if(stat.profilepic===null)
         {

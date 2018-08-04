@@ -6,12 +6,12 @@ class DisplayProfile extends Component
     constructor(props)
     {
         super(props);
-        this.state={profdata:[]};
+        this.state={profdata:[],url_path:"https://lets-blog-dinesh.herokuapp.com"};
     }
     componentDidMount()
     {
         let data=JSON.parse(localStorage.getItem('token'));
-        fetch("http://localhost:8000/api/v1/GETallProfile/",
+        fetch(this.state.url_path+"/api/v1/GETallProfile/",
         {
             method:"GET",
             headers: new Headers({

@@ -6,12 +6,12 @@ class SelfDetailComponent extends Component
     constructor(props)
     {
       super(props);
-      this.state={profile:[],allprofile:[],blogdata:[],temp:false};
+      this.state={profile:[],allprofile:[],blogdata:[],temp:false,url_path:"https://lets-blog-dinesh.herokuapp.com"};
     }
     componentDidMount()
     {
       let data=JSON.parse(localStorage.getItem('token'));
-      fetch("http://localhost:8000/api/v1/EditProfile/",
+      fetch(this.state.url_path+"/api/v1/EditProfile/",
       {
           method:"GET",
           headers: new Headers({
@@ -24,7 +24,7 @@ class SelfDetailComponent extends Component
       this.setState({profile:response});
       }
       );
-      fetch("http://localhost:8000/api/v1/GETallBlogs/",
+      fetch(this.state.url_path+"/api/v1/GETallBlogs/",
       {
           method:"GET",
           headers: new Headers({
@@ -37,7 +37,7 @@ class SelfDetailComponent extends Component
       this.setState({blogdata:response});
       }
       );
-      fetch("http://localhost:8000/api/v1/GETallProfile/",
+      fetch(this.state.url_path+"/api/v1/GETallProfile/",
       {
           method:"GET",
           headers: new Headers({

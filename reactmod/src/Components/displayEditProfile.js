@@ -59,6 +59,7 @@ class DisplayEditProfile extends Component
                     gender:(this.props.profile.gender==null?"":this.props.profile.gender),
                     mobileno:(this.props.profile.mobileno==null?"":this.props.profile.mobileno),
                     flag:false,    
+                    url_path:"https://lets-blog-dinesh.herokuapp.com",
                 };
     }
     handleSubmit(e)
@@ -77,7 +78,7 @@ class DisplayEditProfile extends Component
             formData.append('profilepic',this.state.profilepic);
         console.log(formData);
         let data=JSON.parse(localStorage.getItem('token'));
-        fetch("http://localhost:8000/api/v1/EditProfile/",
+        fetch(this.state.url_path+"/api/v1/EditProfile/",
         {
             method:"PUT",
             body:formData,
