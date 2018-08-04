@@ -93,10 +93,10 @@ class IndivDis extends Component
                             <label>Name:</label> 
                             {fname+" "+lname}
                         </div>
-                        <div>   
+                        {/* <div>   
                             <label>Followers:</label>
                             {fc}
-                        </div>
+                        </div> */}
                         <div>
                             <label>Following:</label>
                             {fcount}
