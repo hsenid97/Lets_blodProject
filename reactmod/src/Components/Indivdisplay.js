@@ -70,6 +70,7 @@ class IndivDis extends Component
             
             return(                
             <div>
+                <br/>
                 <Paper elevation={20}>
                 <Card>
                     
