@@ -21,6 +21,8 @@ class LoginView extends Component
     checkTheLoginDetailsAndSaveToken(data,e)
     {
        let sts=false;
+       console.log(data);
+       console.log(this.state.url_path+"/api-jwttoken-auth/");
         fetch(this.state.url_path+"/api-jwttoken-auth/",
         {
             method:"POST",
