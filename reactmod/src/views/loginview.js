@@ -21,7 +21,7 @@ class LoginView extends Component
     checkTheLoginDetailsAndSaveToken(data,e)
     {
        let sts=false;
-        fetch("http://localhost:8000/api-jwttoken-auth/",
+        fetch("/api-jwttoken-auth/",
         {
             method:"POST",
             body:JSON.stringify(data),
@@ -42,7 +42,7 @@ class LoginView extends Component
             
             let datatok=JSON.parse(localStorage.getItem('token'));
             console.log(datatok['token']+" sucess");    
-            fetch("http://localhost:8000/api/v1/EditProfile/",
+            fetch("/api/v1/EditProfile/",
             {
                 method:"GET",
                 headers: new Headers({
