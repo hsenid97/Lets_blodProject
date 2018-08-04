@@ -30,8 +30,7 @@ DEBUG = True
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['lets-blog-dinesh.herokuapp.com','127.0.0.1','localhost']
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
