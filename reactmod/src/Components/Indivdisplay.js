@@ -35,7 +35,8 @@ class IndivDis extends Component
     render()
     {
         let dp=this.state.url_path;
-        let fname,lname,displayname,fc,ffc;
+        let fname,lname,displayname,fc,ffc=[];
+        let fcount=0;
         try{
          fname=this.props.profile.firstname;
          lname=this.props.profile.lastname;
@@ -54,7 +55,14 @@ class IndivDis extends Component
             fname=" ";
         if(lname===null)
             lname=" ";
-        ffc=this.props.profile.followingCount;
+        
+        if(this.props.profile.followers!=null)
+        {
+            ffc=this.props.profile.followers.split(",");
+            fcount=ffc.length-1;
+        }
+        
+
          fc=this.props.profile.followersCount;
          displayname=this.props.profile.displayname;
         }
@@ -70,7 +78,6 @@ class IndivDis extends Component
             
             return(                
             <div>
-                <br/>
                 <Paper elevation={20}>
                 <Card>
                     
@@ -92,7 +99,7 @@ class IndivDis extends Component
                         </div>
                         <div>
                             <label>Following:</label>
-                            {ffc}
+                            {fcount}
                         </div>                 
                         
                     </Typography>

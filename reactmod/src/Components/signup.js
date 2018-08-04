@@ -111,7 +111,7 @@ class SignupUser extends Component
                          </td>
                             </tr><br/>
                             <tr><td>
-                            <label>Email</label></td><td>
+                            <label>Email*</label></td><td>
                             <input type="text" ref="email"/>
                             </td>
                             </tr>
