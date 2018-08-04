@@ -112,7 +112,7 @@ class SelfComponent extends Component{
     //((item.userinfo === this.props.profile[0].id)?<Carditem card={item} key={item.id}/>:(<a/>))      
     render(){
         let followers=JSON.parse(localStorage.getItem('profiles'));
-        let result;
+        let result=[];
         if(followers!=null){
          result=followers.split(",");
         result.splice(-1,1);
